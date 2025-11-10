@@ -10,7 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+from .types import AppEnv
+
+APP_ENV = AppEnv(
+    env=os.getenv("APP_ENV", "dev"),  # pyright: ignore[reportArgumentType]
+    debug=os.getenv("DEBUG", "true").lower() == "true",
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # Same directory as manage.py
