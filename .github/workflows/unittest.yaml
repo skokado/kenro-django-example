@@ -19,8 +19,6 @@ jobs:
       - name: Install the latest version of uv
         uses: astral-sh/setup-uv@v7
         with:
-          restore-cache: false
-          save-cache: false
           cache-python: true
 
       - name: Run tests
